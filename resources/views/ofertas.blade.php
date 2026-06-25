@@ -1,6 +1,14 @@
 @extends('layouts.app')
-@section('contenido')
-<h1>Bienvenido a la pagina de OFERTAS</h1>
-<p>Esta es la pagina de ofertas </p>
-@endsection
 
+@section('contenido')
+
+    <h1>Bienvenido a la pagina de OFERTAS</h1>
+    <p>Esta es la pagina de ofertas </p>
+
+    @forelse ($programas as $dato)
+        <p>{{ $dato['nombre'] }}</p>
+    @empty
+        <p>No existen ofertas</p>
+    @endforelse
+    
+@endsection

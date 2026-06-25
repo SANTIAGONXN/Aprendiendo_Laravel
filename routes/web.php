@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\EmpleosController;
 use Illuminate\Support\Facades\Route;
+// Lo que hace es importar el controllador
+use App\Http\Controllers\ProgramasController;
 
 Route::get('/', function () {
     return view('index');
@@ -9,11 +12,6 @@ Route::get('/', function () {
 Route::get('quienes-somos', function () { //  quienes-somos es ruta en que le da clic el usuario.
     return view('nosotros'); // nosostros es el nombre de la vista. 
 });
-Route::get('ofertas', function () { 
-    return view('ofertas'); 
-});
-
-
 // ------------------------
 //EMPLEABILIDAD:
 // Ruta para redirigir al home del rol de Instrcutores 
@@ -23,10 +21,6 @@ Route::get('ingresInstruct', function () {
 // Ruta para redirigir hacia view de buscar empleo
 Route::get('busque-empleo', function () { 
     return view('empleabilidad/busqueEmpleo'); 
-});
-// Ruta para redirigir a view de Observatorio Laboral
-Route::get('observatorio-laboral', function () { 
-    return view('empleabilidad/observatorioLaboral'); 
 });
 
 //CERRAR SESIÓN
@@ -48,6 +42,15 @@ Route::get('bibliotecas', function () {
     return view('formacion/biblioteca'); 
 });
 
+// RUTAS PARA DIRIGIR A CONTROLLERS 
+// ----------
+// El nombre index es el nombre del metodo que se encuentra en el controller. 
+// Este es un metodo para el controller. 
+Route::get('/programas', [ProgramasController::class, 'index']) /* Lo que dice (/programas) es lo que se  muestra en la url al ejecutar la vista */
+    ->name('programasActuales.index'); // -- Aqui es donde va el nombre que se pone el menu(donde da clic el usuario)
+// Ruta para redirigir a view de Observatorio Laboral/controller
+Route::get('/empleos', [EmpleosController::class, 'index']) /* Lo que dice (/programas) es lo que se  muestra en la url al ejecutar la vista */
+    ->name('empleosDisponibles.index');
 
 
 
