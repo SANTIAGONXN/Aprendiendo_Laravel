@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EmpleosController extends Controller
+class ObservatorioLaboralController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,13 +12,15 @@ class EmpleosController extends Controller
     public function index()
     {
         //
-        $empleosDispo = [
-            ['nombre'=> 'Desarrollador de Software'],
-            ['nombre'=> 'Administrador de empresas'],
-            ['nombre'=> 'Ingeniero en sistemas'],
-            ['nombre'=> 'Ingeniero Ambiental']
+        $observLaboral = [
+            ['opcion' => 'COUC'],
+            ['opcion' => 'Nuevos proyectos de inversión '],
+            ['opcion' => 'Tendencia de las ocupaciones'],
+            ['opcion' => 'Programas más sobresalientes del SENA'],
+            ['opcion' => 'Buscador de ocupaciones'],
+            ['opcion' => 'Cifras regionales del mercado laboral']
         ];
-        return view ('empleabilidad/busqueEmpleo',['empleos' =>$empleosDispo]);// Lo que dice (empleos) es la variable que va dentro de la vista
+        return view ('empleabilidad/observatorioLAboral',['obsrvatorio' =>$observLaboral]);
     }
 
     /**

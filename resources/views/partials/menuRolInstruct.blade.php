@@ -3,6 +3,7 @@
             <h4>Este es el menu de isntructores  </h4>
             <li><a href="{{route('empleosDisponibles.index') }}">Busque Empelo</a></li> 
            {{--  <li><a href="busque-empleo">Busque Empelo</a></li> --}}
-            <li><a href="observatorio-laboral"> Observatorio laboral</a></li>
+            {{-- <li><a href="observatorio-laboral"> Observatorio laboral</a></li> --}}
+            <li><a href="{{route('ObservatorioLaboral.index') }}">Observatorio laboral</a></li>
         </ul>
     </nav>

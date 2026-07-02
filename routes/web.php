@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmpleosController;
+use App\Http\Controllers\ObservatorioLaboralController;
 use Illuminate\Support\Facades\Route;
 // Lo que hace es importar el controllador
 use App\Http\Controllers\ProgramasController;
@@ -47,10 +48,12 @@ Route::get('bibliotecas', function () {
 // El nombre index es el nombre del metodo que se encuentra en el controller. 
 // Este es un metodo para el controller. 
 Route::get('/programas', [ProgramasController::class, 'index']) /* Lo que dice (/programas) es lo que se  muestra en la url al ejecutar la vista */
-    ->name('programasActuales.index'); // -- Aqui es donde va el nombre que se pone el menu(donde da clic el usuario)
-// Ruta para redirigir a view de Observatorio Laboral/controller
+    ->name('programasActuales.index'); // -- Aqui es donde va el nombre que se pone el menu dentro del  "href" (donde da clic el usuario)
+
+// Ruta para redirigir a view de Empleos/controller
 Route::get('/empleos', [EmpleosController::class, 'index']) /* Lo que dice (/programas) es lo que se  muestra en la url al ejecutar la vista */
     ->name('empleosDisponibles.index');
 
-
-
+// Ruta para redirigir a view de Observatorio Laboral/controller
+Route::get('/Observatorio', [ObservatorioLaboralController::class, 'index']) 
+    ->name('ObservatorioLaboral.index');
