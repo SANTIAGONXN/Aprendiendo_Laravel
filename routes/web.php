@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\CiudadesController;
 use App\Http\Controllers\EmpleosController;
 use App\Http\Controllers\ObservatorioLaboralController;
 use Illuminate\Support\Facades\Route;
 // Lo que hace es importar el controllador
 use App\Http\Controllers\ProgramasController;
+use App\Http\Controllers\DepartamentosController;
+use App\Http\Controllers\EmpleadosController;
 
 Route::get('/', function () {
     return view('index');
@@ -57,3 +60,22 @@ Route::get('/empleos', [EmpleosController::class, 'index']) /* Lo que dice (/pro
 // Ruta para redirigir a view de Observatorio Laboral/controller
 Route::get('/Observatorio', [ObservatorioLaboralController::class, 'index']) 
     ->name('ObservatorioLaboral.index');
+
+// RUTAS PARA LSITAR REGISTRSOS DE LA BASE DE DATOS. 
+
+// Ruta para redirigir al controller para lsitar empleados
+    Route::get('/ListarDepartaemntos', [DepartamentosController::class, 'index']) 
+    ->name('listarDepartamentos.index');
+
+    // Ruta para redirigir al controller de lsitar ciudades
+    Route::get('/ListarCiudades', [CiudadesController::class, 'index']) 
+    ->name('listarCiudades.index');
+
+    // Ruta para redirigir al controller de lsitar ciudades
+    Route::get('/Listarempleados', [EmpleadosController::class, 'index']) 
+    ->name('listarEmpleados.index');
+
+
+
+
+
