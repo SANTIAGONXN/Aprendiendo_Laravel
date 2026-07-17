@@ -8,5 +8,5 @@ class empleados extends Model
 {
     //
       protected $table = 'empleados';
-    protected $primarykey = 'idEmpleado';
+    protected $primaryKey = 'idEmpleado';
 }

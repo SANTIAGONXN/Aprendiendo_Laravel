@@ -8,6 +8,6 @@ class departamentos extends Model
 {
     //
     protected $table = 'departamentos';
-    protected $primarykey = 'idDepartamento';
+    protected $primaryKey = 'idDepartamento';
 
 }

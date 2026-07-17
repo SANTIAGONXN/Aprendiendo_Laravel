@@ -6,7 +6,7 @@
     <p>Esta es la pagina de ofertas </p>
 
     @forelse ($programas as $dato)
-        <p>{{ $dato['nombre'] }}</p>
+        <p>{{ $dato['nameEmpleo'] }}</p>
     @empty
         <p>No existen ofertas</p>
     @endforelse

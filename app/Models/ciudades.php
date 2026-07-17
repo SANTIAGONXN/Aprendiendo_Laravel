@@ -8,5 +8,5 @@ class ciudades extends Model
 {
     //
     protected $table = 'ciudades';
-    protected $primarykey = 'idCiudad';
+    protected $primaryKey = 'idCiudad';
 }

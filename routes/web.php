@@ -19,31 +19,31 @@ Route::get('quienes-somos', function () { //  quienes-somos es ruta en que le da
 // ------------------------
 //EMPLEABILIDAD:
 // Ruta para redirigir al home del rol de Instrcutores 
-Route::get('ingresInstruct', function () { 
-    return view('empleabilidad/empleabilidadPrincipal'); 
+Route::get('ingresInstruct', function () {
+    return view('empleabilidad/empleabilidadPrincipal');
 });
 // Ruta para redirigir hacia view de buscar empleo
-Route::get('busque-empleo', function () { 
-    return view('empleabilidad/busqueEmpleo'); 
+Route::get('busque-empleo', function () {
+    return view('empleabilidad/busqueEmpleo');
 });
 
 //CERRAR SESIÓN
-Route::get('inicio-login', function () { 
-    return view('index'); 
+Route::get('inicio-login', function () {
+    return view('index');
 });
 
 //FORMACIÓN:
 // Ruta para redirigir al home del rol de aprendices 
-Route::get('ingresAprendiz', function () { 
-    return view('formacion/formacionPrincipal'); 
+Route::get('ingresAprendiz', function () {
+    return view('formacion/formacionPrincipal');
 });
 // Ruta que redirige a la view de Aulas multiples. 
-Route::get('aulas-moviles', function () { 
-    return view('formacion/aulasMoviles'); 
+Route::get('aulas-moviles', function () {
+    return view('formacion/aulasMoviles');
 });
 // Ruta que redirige a la view de Biblioteca. 
-Route::get('bibliotecas', function () { 
-    return view('formacion/biblioteca'); 
+Route::get('bibliotecas', function () {
+    return view('formacion/biblioteca');
 });
 
 // RUTAS PARA DIRIGIR A CONTROLLERS 
@@ -58,24 +58,41 @@ Route::get('/empleos', [EmpleosController::class, 'index']) /* Lo que dice (/pro
     ->name('empleosDisponibles.index');
 
 // Ruta para redirigir a view de Observatorio Laboral/controller
-Route::get('/Observatorio', [ObservatorioLaboralController::class, 'index']) 
+Route::get('/Observatorio', [ObservatorioLaboralController::class, 'index'])
     ->name('ObservatorioLaboral.index');
 
 // RUTAS PARA LSITAR REGISTRSOS DE LA BASE DE DATOS. 
 
 // Ruta para redirigir al controller para lsitar empleados
-    Route::get('/ListarDepartaemntos', [DepartamentosController::class, 'index']) 
-    ->name('listarDepartamentos.index');
+Route::get('/ListarDepartaemntos', [DepartamentosController::class, 'index'])
+    ->name('listarDepartamentos.index');/* Este es el nombre de la rutaa */
 
-    // Ruta para redirigir al controller de lsitar ciudades
-    Route::get('/ListarCiudades', [CiudadesController::class, 'index']) 
+// Ruta para redirigir al controller de lsitar ciudades
+Route::get('/ListarCiudades', [CiudadesController::class, 'index'])
     ->name('listarCiudades.index');
 
-    // Ruta para redirigir al controller de lsitar ciudades
-    Route::get('/Listarempleados', [EmpleadosController::class, 'index']) 
+// Ruta para redirigir al controller de lsitar ciudades
+Route::get('/Listarempleados', [EmpleadosController::class, 'index'])
     ->name('listarEmpleados.index');
 
 
+// ---------------------- 17-07-2026
 
+// Ruta para abrir el controlador de departamentos para crear 
+Route::get('/DiligenDepartamentos', [DepartamentosController::class, 'create'])
+    ->name('departamentos.create');
 
+// Ruta del controller que viene del formulario y va al controlller store
+Route::post('/CrearDepartamentos', [DepartamentosController::class, 'store'])
+    ->name('departamentos.store');
+// Ruta para cargar los datos en formulario
+Route::get('/cargarDepartamento/{id}', [DepartamentosController::class, 'edit'])
+    ->name('departamentos.edit');
+
+// Ruta para llmar actualizar 
+Route::put('/editar-Departamento/{id}', [DepartamentosController::class, 'update'])
+    ->name('departamentos.update');
+
+Route::delete('/eliminar-Departamento/{id}', [DepartamentosController::class, 'destroy'])
+    ->name('departamenos.destroy');
 
